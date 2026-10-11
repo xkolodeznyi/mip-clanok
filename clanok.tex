@@ -7,6 +7,7 @@
 \usepackage[IL2]{fontenc} % lepšia sadzba písmena Ľ než v T1
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
+\usepackage{amsmath}
 \usepackage{url} % príkaz \url na formátovanie URL
 \usepackage{hyperref} % odkazy v texte budú aktívne (pri niektorých triedach dokumentov spôsobuje posun textu)
 
@@ -38,6 +39,7 @@
 
 
 \section{Úvod}
+
 
 Motivujte čitateľa a vysvetlite, o čom píšete. Úvod sa väčšinou nedelí na časti.
 
@@ -114,6 +116,27 @@ Na obr.~\ref{f:diagram-wide} je znázornený celkový tok spracovania dát v pro
 
 
 \section{Ešte dôležitejšia časť} \label{dolezitejsia}
+Pre ilustráciu maticových štruktúr používaných pri reprezentácii susednosti uzlov v grafe transakcií uvádzame príklad matice s rozmerom $5 \times 4$:
+
+\[
+A = 
+\begin{pmatrix}
+	1 & 2 & 3 & 4 \\
+	5 & 6 & 7 & 8 \\
+	9 & 10 & 11 & 12 \\
+	13 & 14 & 15 & 16 \\
+	17 & 18 & 19 & 20
+\end{pmatrix}
+\]
+
+
+	Ďalej uvádzame rozvoj vzorca pre výpočet priemerného F1 skóre naprieč piatimi triedami, ktorý svojou šírkou presahuje šírku riadku dokumentu:
+
+\[
+F_1 = \frac{2 \cdot (precision_1 + precision_2 + precision_3 + precision_4 + precision_5) \cdot (recall_1 + recall_2 + recall_3 + recall_4 + recall_5)}{(precision_1 + precision_2 + precision_3 + precision_4 + precision_5) + (recall_1 + recall_2 + recall_3 + recall_4 + recall_5)}
+\]
+
+Rovnakú maticu aj vzorec sme pre porovnanie vytvorili aj v prostredí MS Word (nástrojmi Insert → Table a Insert → Equation). Pri porovnaní sadzby sme zistili nasledovné rozdiely: LaTeX dlhý vzorec jednoducho nechá presahovať šírku riadku, pričom autor musí ručne riešiť zalomenie, napríklad pomocou prostredia \texttt{align} alebo zmenšením písma príkazom \texttt{\textbackslash small}. Naproti tomu MS Word sa pri dlhších vzorcoch automaticky pokúša vzorec zalomiť alebo zmenšiť tak, aby sa zmestil na riadok, čo je síce pohodlnejšie pre menej skúseného používateľa, no autor má nad výsledným vzhľadom citeľne menšiu kontrolu ako v LaTeXu.
 
 
 
