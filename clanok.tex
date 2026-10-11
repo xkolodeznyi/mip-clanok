@@ -8,6 +8,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{amsmath}
+\usepackage{wrapfig}
 \usepackage{url} % príkaz \url na formátovanie URL
 \usepackage{hyperref} % odkazy v texte budú aktívne (pri niektorých triedach dokumentov spôsobuje posun textu)
 
@@ -38,7 +39,20 @@
 
 
 
+
 \section{Úvod}
+
+\begin{wrapfigure}{l}{0.18\textwidth}
+\centering
+\includegraphics[width=0.16\textwidth]{fiit-logo.png}
+\end{wrapfigure}
+
+Motivujte čitateľa a vysvetlite, o čom píšete. Úvod sa väčšinou nedelí na časti.
+
+
+
+
+
 
 
 Motivujte čitateľa a vysvetlite, o čom píšete. Úvod sa väčšinou nedelí na časti.
@@ -132,9 +146,12 @@ A =
 
 	Ďalej uvádzame rozvoj vzorca pre výpočet priemerného F1 skóre naprieč piatimi triedami, ktorý svojou šírkou presahuje šírku riadku dokumentu:
 
-\[
-F_1 = \frac{2 \cdot (precision_1 + precision_2 + precision_3 + precision_4 + precision_5) \cdot (recall_1 + recall_2 + recall_3 + recall_4 + recall_5)}{(precision_1 + precision_2 + precision_3 + precision_4 + precision_5) + (recall_1 + recall_2 + recall_3 + recall_4 + recall_5)}
-\]
+\begin{equation}
+\begin{split}
+F_1 = &\frac{2 \cdot (precision_1 + \dots + precision_5)}{\sum (precision_i + recall_i)} \cdot \\
+&\frac{\cdot (recall_1 + \dots + recall_5)}{(precision_1 + \dots + precision_5)}
+\end{split}
+\end{equation}
 
 Rovnakú maticu aj vzorec sme pre porovnanie vytvorili aj v prostredí MS Word (nástrojmi Insert → Table a Insert → Equation). Pri porovnaní sadzby sme zistili nasledovné rozdiely: LaTeX dlhý vzorec jednoducho nechá presahovať šírku riadku, pričom autor musí ručne riešiť zalomenie, napríklad pomocou prostredia \texttt{align} alebo zmenšením písma príkazom \texttt{\textbackslash small}. Naproti tomu MS Word sa pri dlhších vzorcoch automaticky pokúša vzorec zalomiť alebo zmenšiť tak, aby sa zmestil na riadok, čo je síce pohodlnejšie pre menej skúseného používateľa, no autor má nad výsledným vzhľadom citeľne menšiu kontrolu ako v LaTeXu.
 
@@ -165,6 +182,9 @@ Priebeh práce na projekte je znázornený na obr.~\ref{f:diagram1} a metodika n
 \label{f:diagram2}
 \end{minipage}
 \end{figure}
+
+
+
 
 % týmto sa generuje zoznam literatúry z obsahu súboru literatura.bib podľa toho, na čo sa v článku odkazujete
 \bibliography{literatura}
