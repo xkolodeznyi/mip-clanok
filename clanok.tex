@@ -1,12 +1,14 @@
 % Metódy inžinierskej práce
 
-\documentclass[10pt,twoside,slovak,a4paper]{article}
+\documentclass[10pt,twocolumn,twoside,slovak,a4paper]{article}
 
 \usepackage[slovak]{babel}
 %\usepackage[T1]{fontenc}
 \usepackage[IL2]{fontenc} % lepšia sadzba písmena Ľ než v T1
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{wrapfig}
 \usepackage{url} % príkaz \url na formátovanie URL
 \usepackage{hyperref} % odkazy v texte budú aktívne (pri niektorých triedach dokumentov spôsobuje posun textu)
 
@@ -17,13 +19,13 @@
 
 \title{Názov\thanks{Semestrálny projekt v predmete Metódy inžinierskej práce, ak. rok 2015/16, vedenie: Meno Priezvisko}} % meno a priezvisko vyučujúceho na cvičeniach
 
-\author{Meno Priezvisko\\[2pt]
+\author{Dmytro Kolodeznyi \\[2pt]
 	{\small Slovenská technická univerzita v Bratislave}\\
 	{\small Fakulta informatiky a informačných technológií}\\
 	{\small \texttt{...@stuba.sk}}
 	}
 
-\date{\small 30. september 2015} % upravte
+\date{\small 21. september 2026} % upravte
 
 
 
@@ -37,7 +39,21 @@
 
 
 
+
 \section{Úvod}
+
+\begin{wrapfigure}{l}{0.18\textwidth}
+\centering
+\includegraphics[width=0.16\textwidth]{fiit-logo.png}
+\end{wrapfigure}
+
+Motivujte čitateľa a vysvetlite, o čom píšete. Úvod sa väčšinou nedelí na časti.
+
+
+
+
+
+
 
 Motivujte čitateľa a vysvetlite, o čom píšete. Úvod sa väčšinou nedelí na časti.
 
@@ -103,22 +119,74 @@ Niekedy je potrebné nadpisom označiť odsek. Text pokračuje hneď za nadpisom
 
 \section{Dôležitá časť} \label{dolezita}
 
+Na obr.~\ref{f:diagram-wide} je znázornený celkový tok spracovania dát v projekte STOPA.
 
+\begin{figure*}[tbh]
+\centering
+\includegraphics[width=0.8\textwidth]{diagram3.pdf}
+\caption{Diagram cez celú šírku stránky (obidva stĺpce).}
+\label{f:diagram-wide}
+\end{figure*}
 
 
 \section{Ešte dôležitejšia časť} \label{dolezitejsia}
+Pre ilustráciu maticových štruktúr používaných pri reprezentácii susednosti uzlov v grafe transakcií uvádzame príklad matice s rozmerom $5 \times 4$:
+
+\[
+A = 
+\begin{pmatrix}
+	1 & 2 & 3 & 4 \\
+	5 & 6 & 7 & 8 \\
+	9 & 10 & 11 & 12 \\
+	13 & 14 & 15 & 16 \\
+	17 & 18 & 19 & 20
+\end{pmatrix}
+\]
+
+
+	Ďalej uvádzame rozvoj vzorca pre výpočet priemerného F1 skóre naprieč piatimi triedami, ktorý svojou šírkou presahuje šírku riadku dokumentu:
+
+\begin{equation}
+\begin{split}
+F_1 = &\frac{2 \cdot (precision_1 + \dots + precision_5)}{\sum (precision_i + recall_i)} \cdot \\
+&\frac{\cdot (recall_1 + \dots + recall_5)}{(precision_1 + \dots + precision_5)}
+\end{split}
+\end{equation}
+
+Rovnakú maticu aj vzorec sme pre porovnanie vytvorili aj v prostredí MS Word (nástrojmi Insert → Table a Insert → Equation). Pri porovnaní sadzby sme zistili nasledovné rozdiely: LaTeX dlhý vzorec jednoducho nechá presahovať šírku riadku, pričom autor musí ručne riešiť zalomenie, napríklad pomocou prostredia \texttt{align} alebo zmenšením písma príkazom \texttt{\textbackslash small}. Naproti tomu MS Word sa pri dlhších vzorcoch automaticky pokúša vzorec zalomiť alebo zmenšiť tak, aby sa zmestil na riadok, čo je síce pohodlnejšie pre menej skúseného používateľa, no autor má nad výsledným vzhľadom citeľne menšiu kontrolu ako v LaTeXu.
 
 
 
 
 \section{Záver} \label{zaver} % prípadne iný variant názvu
+Projekt bol úspešne prenesený medzi lokálnym prostredím VS Code a cloudovou platformou Overleaf. Počas testovania boli vykonané úpravy dokumentu a následne overené v oboch prostrediach.
 
 
 
 %\acknowledgement{Ak niekomu chcete poďakovať\ldots}
+Priebeh práce na projekte je znázornený na obr.~\ref{f:diagram1} a metodika na obr.~\ref{f:diagram2}.
+
+\begin{figure}[tbh]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[angle=15, width=1.5\linewidth]{diagram1-crop.pdf}
+\caption{Aktivity súvisiace s prípravou projektu.}
+\label{f:diagram1}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{diagram2-crop.pdf}
+\caption{Metodika detekcie podozrivých transakcií.}
+\label{f:diagram2}
+\end{minipage}
+\end{figure}
+
+
 
 
 % týmto sa generuje zoznam literatúry z obsahu súboru literatura.bib podľa toho, na čo sa v článku odkazujete
 \bibliography{literatura}
-\bibliographystyle{plain} % prípadne alpha, abbrv alebo hociktorý iný
+\bibliographystyle{alpha} % prípadne alpha, abbrv alebo hociktorý iný
 \end{document}
