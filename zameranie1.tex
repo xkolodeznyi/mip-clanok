@@ -1,0 +1,64 @@
+\documentclass[11pt,a4paper,slovak]{article}
+
+\usepackage[slovak]{babel}
+\usepackage[IL2]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{url}
+
+\title{Spresnenie zamerania projektu}
+
+\author{Bohdan Kochkin \and Oleksandr Komarenko \and Dmytro Kolodeznyi \and Daniel Kollár\\[6pt]
+	{\small Slovenská technická univerzita v Bratislave}\\
+	{\small Fakulta informatiky a informačných technológií}\\[4pt]
+	{\small Cvičiaci: Ing. Oliver Udvardi}
+	}
+
+\date{\small 3. október 2026}
+
+\begin{document}
+
+\maketitle
+
+\section*{Názov projektu}
+
+Detekcia podozrivých kryptomenových transakcií pomocou grafových neurónových
+sietí
+
+\section*{Akronym projektu}
+
+STOPA (\emph{Sledovanie Transakčných Operácií a Podozrivých Aktivít})
+
+\section*{Anotácia}
+
+Transakcie v~blockchaine sú verejné, osoby za adresami však zostávajú anonymné.
+Páchatelia preháňajú prostriedky z~trestnej činnosti cez dlhé reťazce prevodov,
+aby zastreli ich pôvod. Samotná transakcia zriedka vyzerá podozrivo, podozrivou
+ju robí okolie: odkiaľ prostriedky prišli a kam smerujú ďalej. Túto štruktúru
+nezohľadňujú riešenia založené na príznakoch samostatnej transakcie. A hoci sa
+grafové metódy aktívne skúmajú, ich výhoda oproti jednoduchším modelom nie je
+vždy potvrdená.
+
+V~projekte STOPA skúmame, či grafové neurónové siete skutočne lepšie odhalia
+podozrivé transakcie než klasické modely. Transakcie si predstavujeme ako graf,
+kde uzol je transakcia a hrana tok peňazí medzi nimi. Klasické modely ---
+logistická regresia, random forest, gradient boosting --- pracujú len
+s~tabuľkovými dátami a mnohé súvislosti im uniknú, zatiaľ čo graf ich dokáže
+zachytiť. Testujeme preto aj hybrid, ktorý spája grafové príznaky s~klasickým
+klasifikátorom, a overujeme, či prináša reálne zlepšenie.
+
+Vyhodnotenie prebieha na verejnom anotovanom datasete Elliptic s~viac ako
+200~000 bitcoinovými transakciami. Dáta delíme podľa časových období, čím
+minimalizujeme únik informácií z~budúcnosti. Vzhľadom na nevyváženosť tried sa zameriame na úplnosť nelegálnej
+triedy aspoň na úrovni základného modelu a na zvýšenie F1 skóre hybridu aspoň
+o~5 percentuálnych bodov, prípadne so zdôvodnením, ak sa to nepodarí. Súčasťou
+hodnotenia bude plocha pod precision-recall krivkou (PR-AUC) a sledovanie
+poklesu kvality v~čase.
+
+Výsledky sú využiteľné pre finančnú spravodajskú jednotku, orgány činné
+v~trestnom konaní a poskytovateľov služieb kryptoaktív podliehajúcich nariadeniu
+MiCA. Osobitne sledujeme mieru falošne pozitívnych označení, keďže bezdôvodné
+podozrenie voči osobe prináša reálne riziká. Výstupmi budú prototyp analytického
+reťazca, porovnávacia štúdia metód a prehľadový článok.
+
+\end{document}
